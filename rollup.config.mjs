@@ -36,8 +36,9 @@ const aliasOpts = {
 const replaceOpts = {
   preventAssignment: true,
   values: {
-    __VERSION__: pkg.version,
     __NAME__: pkg.name.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase()),
+    __VERSION__: pkg.version,
+    __AUTHOR__: `${pkg.author.name} <${pkg.author.email}>`,
   },
 };
 
