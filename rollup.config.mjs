@@ -35,8 +35,10 @@ const aliasOpts = {
  */
 const replaceOpts = {
   preventAssignment: true,
-  __VERSION__: pkg.version,
-  __NAME__: pkg.name.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase()),
+  values: {
+    __VERSION__: pkg.version,
+    __NAME__: pkg.name.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase()),
+  },
 };
 
 // # private plugins
