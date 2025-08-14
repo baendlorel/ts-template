@@ -1,1 +1,20 @@
-pnpm add -D prettier @babel/plugin-proposal-decorators @babel/preset-env @eslint/js @rollup/plugin-alias @rollup/plugin-babel @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-replace @rollup/plugin-terser @rollup/plugin-typescript @types/node eslint rimraf rollup rollup-plugin-dts tslib typescript typescript-eslint vitest
+pnpm add -D \
+ prettier \
+ @babel/plugin-proposal-decorators \
+ @babel/preset-env \
+ @rollup/plugin-alias \
+ @rollup/plugin-babel \
+ @rollup/plugin-commonjs \
+ @rollup/plugin-node-resolve \
+ @rollup/plugin-replace \
+ @rollup/plugin-terser \
+ @rollup/plugin-typescript \
+ @types/node \
+ rimraf \
+ rollup \
+ rollup-plugin-dts \
+ tslib \
+ typescript \
+ @vitest/coverage-v8 \
+ vitest \
+ oxlint 
