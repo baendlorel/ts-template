@@ -5,7 +5,7 @@
 		"name": "KasukabeTsumugi",
 		"email": "futami16237@gmail.com"
 	},
-	"description": "",
+	"description": "<name>",
 	"type": "module",
 	"exports": {
 		"import": "./dist/index.mjs",
@@ -36,6 +36,5 @@
 		"cover": "clear & vitest --coverage",
 		"build": "rimraf dist && rollup -c"
 	},
-	"devDependencies": {},
 	"license": "MIT"
 }
