@@ -59,6 +59,7 @@ const replaceOpts = {
   values: {
     __NAME__,
     __PKG_INFO__,
+    __IS_DEV__: 'false',
   },
 };
 
