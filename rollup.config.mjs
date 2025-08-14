@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import pkg from './package.json' with { type: 'json' };
 import path from 'path';
 import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
@@ -11,7 +11,6 @@ import replace from '@rollup/plugin-replace';
 
 const tsconfigFile = './tsconfig.build.json';
 
-const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
 /**
  * @type {import('rollup').RollupOptions}
