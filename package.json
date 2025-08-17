@@ -1,15 +1,20 @@
 {
 	"name": "<name>",
 	"version": "0.0.1",
+	"projectType": "library",
 	"author": {
 		"name": "Kasukabe Tsumugi",
 		"email": "futami16237@gmail.com"
 	},
 	"description": "<name>",
 	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"exports": {
-		"import": "./dist/index.mjs",
 		"types": "./dist/index.d.ts",
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.cjs",
 		"default": "./dist/index.mjs"
 	},
 	"files": [
@@ -21,13 +26,6 @@
 		"url": "https://github.com/baendlorel/<name>"
 	},
 	"keywords": [
-		"deep",
-		"clone",
-		"reflect",
-		"property",
-		"path",
-		"object",
-		"nested",
 		"typescript",
 		"javascript"
 	],
@@ -35,7 +33,7 @@
 		"test": "clear & vitest",
 		"lint": "oxlint .",
 		"cover": "clear & vitest --coverage",
-		"build": "rimraf dist && node ./plugins/rename.js && rollup -c && node ./plugins/rename.js"
+		"build": "node ./scripts/rollup.mjs"
 	},
 	"license": "MIT"
 }
