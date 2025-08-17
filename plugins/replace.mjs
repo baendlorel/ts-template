@@ -1,5 +1,6 @@
 // @ts-check
 import pkg from '../package.json' with { type: 'json' };
+import renamer from './renamer.mjs';
 
 function formatDateFull(dt = new Date()) {
   const y = dt.getFullYear();
@@ -12,7 +13,10 @@ function formatDateFull(dt = new Date()) {
   return `${y}.${m}.${d} ${hh}:${mm}:${ss}.${ms}`;
 }
 
-const __NAME__ = pkg.name.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase());
+const __NAME__ = renamer
+  .readRealName()
+  .replace('rollup-plugin-', '')
+  .replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase());
 
 const __PKG_INFO__ = `## About
  * @package ${__NAME__}
@@ -23,6 +27,8 @@ const __PKG_INFO__ = `## About
  * @description ${pkg.description.replace(/\n/g, '\n * \n * ')}
  * @copyright Copyright (c) ${new Date().getFullYear()} ${pkg.author.name}. All rights reserved.`;
 
+console.log('Building', __NAME__, pkg.version);
+
 /**
  * @type {import('@rollup/plugin-replace').RollupReplaceOptions}
  */
@@ -31,5 +37,7 @@ export const replaceOpts = {
   values: {
     __NAME__,
     __PKG_INFO__,
+    __OPTS__: `Rollup${__NAME__}Options`,
+    __STRICT_OPTS__: `Rollup${__NAME__}StrictOptions`,
   },
 };

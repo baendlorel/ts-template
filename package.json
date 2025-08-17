@@ -35,7 +35,7 @@
 		"test": "clear & vitest",
 		"lint": "oxlint .",
 		"cover": "clear & vitest --coverage",
-		"build": "rimraf dist && rollup -c"
+		"build": "rimraf dist && node ./plugins/rename.js && rollup -c && node ./plugins/rename.js && ls -lh dist/"
 	},
 	"license": "MIT"
 }

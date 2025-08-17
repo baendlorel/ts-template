@@ -2,7 +2,6 @@
 import path from 'node:path';
 
 // plugins
-import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -10,10 +9,11 @@ import alias from '@rollup/plugin-alias';
 import terser from '@rollup/plugin-terser';
 import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
+import dts from 'rollup-plugin-dts';
+import dtsMerger from 'rollup-plugin-dts-merger';
 
 // custom plugins
 import { replaceOpts } from './plugins/replace.mjs';
-import { dtsMerger } from './plugins/dts-merger.mjs';
 
 // # common options
 
@@ -44,6 +44,11 @@ export default [
         format: 'esm',
         sourcemap: false,
       },
+      {
+        file: 'dist/index.cjs',
+        format: 'commonjs',
+        sourcemap: false,
+      },
     ],
 
     plugins: [
@@ -51,6 +56,7 @@ export default [
       replace(replaceOpts),
       resolve(),
       commonjs(),
+      typescript({ tsconfig }),
       babel({
         babelHelpers: 'bundled',
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -64,12 +70,12 @@ export default [
           ],
         ],
       }),
-      typescript({ tsconfig }),
       terser({
         format: {
           comments: false, // remove comments
         },
         compress: {
+          reduce_vars: true,
           drop_console: true,
           dead_code: true, // ✅ Safe: remove dead code
           evaluate: true, // ✅ Safe: evaluate constant expressions
@@ -87,6 +93,11 @@ export default [
   {
     input: 'src/index.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
-    plugins: [alias(aliasOpts), replace(replaceOpts), dts({ tsconfig }), dtsMerger()],
+    plugins: [
+      alias(aliasOpts),
+      replace(replaceOpts),
+      dts({ tsconfig }),
+      dtsMerger({ replace: replaceOpts }),
+    ],
   },
 ];

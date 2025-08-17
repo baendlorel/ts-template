@@ -13,6 +13,7 @@ pnpm add -D \
  rimraf \
  rollup \
  rollup-plugin-dts \
+ rollup-plugin-dts-merger \
  tslib \
  typescript \
  @vitest/coverage-v8 \
