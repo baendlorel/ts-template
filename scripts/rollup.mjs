@@ -26,7 +26,7 @@ function printSize(files) {
       total += size;
       info.push({ file, size });
     } catch (e) {
-      console.warn(`${file}: Not found or no permission to read`);
+      console.warn(`${file}: Not found or no permission to read`, e);
     }
   });
 
