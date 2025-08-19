@@ -27,7 +27,7 @@ const tsconfig = './tsconfig.build.json';
  * @type {import('@rollup/plugin-alias').RollupAliasOptions}
  */
 const aliasOpts = {
-  entries: [{ find: /^@/, replacement: path.resolve(import.meta.dirname, 'src') }],
+  entries: [{ find: /^@\//, replacement: path.resolve(import.meta.dirname, 'src') + '/' }],
 };
 
 // # main options
@@ -108,7 +108,6 @@ const declaration = {
 /**
  * @type {'library' | 'server' | 'web'}
  */
-pkg.projectType = 'library';
 switch (pkg.projectType) {
   case 'library':
     options.push(declaration);
