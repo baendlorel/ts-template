@@ -106,17 +106,13 @@ const declaration = {
 };
 
 /**
- * @type {'library' | 'server' | 'web'}
+ * @type {'npm'|'rollup-plugin'|'vscode-extension'|'server'|'web'|'app'}
  */
-switch (pkg.projectType) {
-  case 'library':
+switch (pkg.purpose) {
+  case 'npm':
+  case 'rollup-plugin':
     options.push(declaration);
     break;
-  case 'server':
-  case 'web':
-    break;
-  default:
-    throw new Error(`Project type must be 'library', 'server', or 'web'. Got '${pkg.projectType}'`);
 }
 
 export default options;

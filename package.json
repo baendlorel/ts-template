@@ -1,12 +1,13 @@
 {
 	"name": "<name>",
 	"version": "0.0.1",
-	"projectType": "library",
 	"author": {
 		"name": "Kasukabe Tsumugi",
 		"email": "futami16237@gmail.com"
 	},
+	"purpose": "npm",
 	"description": "<name>",
+	"description_zh": "<name>",
 	"type": "module",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",

@@ -30,10 +30,11 @@ const __PKG_INFO__ = `## About
 export const replaceOpts = {
   preventAssignment: true,
   values: {
+    __IS_DEV__: 'false',
     __NAME__,
     __KEBAB_NAME__,
     __PKG_INFO__,
-    __OPTS__: `Rollup${__NAME__}Options`,
-    __STRICT_OPTS__: `Rollup${__NAME__}StrictOptions`,
+    // __OPTS__: `Rollup${__NAME__}Options`,
+    // __STRICT_OPTS__: `Rollup${__NAME__}StrictOptions`,
   },
 };
