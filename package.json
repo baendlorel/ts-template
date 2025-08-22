@@ -5,7 +5,7 @@
 		"name": "Kasukabe Tsumugi",
 		"email": "futami16237@gmail.com"
 	},
-	"purpose": "npm",
+	"purpose": "<npm|app|vscode-extension|rollup-plugin>",
 	"description": "<name>",
 	"description_zh": "<name>",
 	"type": "module",
