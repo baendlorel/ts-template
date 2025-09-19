@@ -101,7 +101,7 @@ const declaration = {
     alias(aliasOpts),
     replace(replaceOpts),
     dts({ tsconfig }),
-    dtsMerger({ replace: replaceLiteralOpts }),
+    dtsMerger({ replace: replaceOpts, replaceLiteral: replaceLiteralOpts }),
   ],
 };
 
