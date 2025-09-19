@@ -43,5 +43,7 @@ export const replaceOpts = {
  * @type {Record<string, any>}
  */
 export const replaceLiteralOpts = {
-  'declare const __IS_DEV__: boolean;': '',
+  'declare const __IS_DEV__: boolean;\n': '',
+  // & This flag is used to export types only when generating declaration files.
+  // '//__EXPORT_FLAG__\n':'export '
 };
