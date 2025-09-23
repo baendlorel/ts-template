@@ -1,5 +1,5 @@
 // @ts-check
-import pkg from './package.json' with { type: 'json' };
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 // plugins
@@ -15,6 +15,11 @@ import dtsMerger from 'rollup-plugin-dts-merger';
 
 // custom plugins
 import { replaceLiteralOpts, replaceOpts } from './scripts/plugins/replace.mjs';
+
+/**
+ * @type {import('./package.json')}
+ */
+const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
 // # common options
 
