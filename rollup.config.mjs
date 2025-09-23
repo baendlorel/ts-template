@@ -19,7 +19,7 @@ import { replaceLiteralOpts, replaceOpts } from './scripts/plugins/replace.mjs';
 /**
  * @type {import('./package.json')}
  */
-const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
+const pkg = JSON.parse(readFileSync(path.join(import.meta.dirname, 'package.json'), 'utf-8'));
 
 // # common options
 
