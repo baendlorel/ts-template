@@ -106,7 +106,8 @@ const declaration = {
     alias(aliasOpts),
     replace(replaceOpts),
     dts({ tsconfig }),
-    dtsMerger({ replace: replaceOpts, replaceLiteral: replaceLiteralOpts }),
+    //& dts-merger:2.0.0 is different from 1.3.0
+    dtsMerger({ replace: { ...replaceOpts.values, ...replaceLiteralOpts } }),
   ],
 };
 
