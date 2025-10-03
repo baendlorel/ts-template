@@ -12,6 +12,7 @@ import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
 import dts from 'rollup-plugin-dts';
 import dtsMerger from 'rollup-plugin-dts-merger';
+import funcMacro from 'rollup-plugin-func-macro';
 
 // custom plugins
 import { replaceLiteralOpts, replaceOpts } from './.scripts/plugins/replace.mjs';
@@ -58,7 +59,13 @@ const options = [
 
     plugins: [
       alias(aliasOpts),
+      replace({
+        preventAssignment: false,
+        delimiters: ['', ''],
+        replaceLiteralOpts,
+      }),
       replace(replaceOpts),
+      funcMacro(),
       resolve(),
       commonjs(),
       typescript({ tsconfig }),
