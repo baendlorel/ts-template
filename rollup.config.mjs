@@ -13,14 +13,15 @@ import replace from '@rollup/plugin-replace';
 import dts from 'rollup-plugin-dts';
 import dtsMerger from 'rollup-plugin-dts-merger';
 import funcMacro from 'rollup-plugin-func-macro';
+import constEnum from 'rollup-plugin-const-enum';
 
 // custom plugins
-import { replaceLiteralOpts, replaceOpts } from './.scripts/plugins/replace.mjs';
+import { replaceLiteralOpts, replaceOpts } from './.scripts/replace.mjs';
 
 /**
  * @type {import('./package.json')}
  */
-const pkg = JSON.parse(readFileSync(path.join(import.meta.dirname, 'package.json'), 'utf-8'));
+const pkg = JSON.parse(readFileSync(path.join(process.cwd(), 'package.json'), 'utf-8'));
 
 // # common options
 
@@ -66,6 +67,7 @@ const options = [
       }),
       replace(replaceOpts),
       funcMacro(),
+      constEnum(),
       resolve(),
       commonjs(),
       typescript({ tsconfig }),
