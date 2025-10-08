@@ -47,6 +47,7 @@ async function run() {
 
   const files = readdirSync(dist);
   printSize(files);
+  console.log(`Built`, `[${purpose}]`, name, version);
 }
 
 run();
