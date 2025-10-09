@@ -19,4 +19,6 @@ pnpm add -D \
  @vitest/coverage-v8 \
  vitest \
  oxlint \
- rollup-plugin-func-macro
+ rollup-plugin-func-macro \
+ rollup-plugin-const-enum \
+ rollup-plugin-conditional-compilation 
