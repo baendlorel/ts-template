@@ -48,6 +48,7 @@ async function run() {
   const files = readdirSync(dist);
   printSize(files);
   console.log(`Built`, `[${purpose}]`, name, version);
+  console.log(`NODE_ENV`, process.env.NODE_ENV || '[unset]');
 }
 
 run();
